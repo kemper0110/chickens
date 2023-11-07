@@ -1,6 +1,7 @@
-extends Node3D
+extends CharacterBody3D
 
 @export var speed = 15
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,14 +13,12 @@ func _process(delta):
 
 func _physics_process(delta):
 	var pos = get_viewport().get_mouse_position()
-	# rotation.x - q, e
-	# rotation.z = -pos.x / 100 # влево-вправо
 	
 	if Input.is_key_pressed(KEY_A):
-		position.z += speed * delta
+		velocity.z = 1000
 	if Input.is_key_pressed(KEY_D):
-		position.z -= speed * delta
-
+		velocity.z = -1000
+		
 	if Input.is_key_pressed(KEY_Q) or Input.is_key_pressed(KEY_E):
 		if Input.is_key_pressed(KEY_Q):
 			rotation.x = deg_to_rad(+15)
@@ -28,3 +27,5 @@ func _physics_process(delta):
 	else:
 		rotation.x = deg_to_rad(0)
 
+	velocity.y -= gravity * delta
+	move_and_collide(velocity * delta)

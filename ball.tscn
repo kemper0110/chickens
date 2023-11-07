@@ -1,22 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://bw5uml3sowukl"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_p0tap"]
+radius = 1.5
+
 [sub_resource type="SphereMesh" id="SphereMesh_3tcg3"]
 radius = 1.5
 height = 3.0
 
 [sub_resource type="Skin" id="Skin_8f47v"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_p0tap"]
-radius = 1.5
-
 [node name="Ball" type="Node3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_3tcg3")
-skin = SubResource("Skin_8f47v")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 mass = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("SphereShape3D_p0tap")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("SphereMesh_3tcg3")
+skin = SubResource("Skin_8f47v")
+skeleton = NodePath("../..")
