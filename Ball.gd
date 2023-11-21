@@ -11,6 +11,12 @@ func _ready():
 	velocity.x = [-1, 1][randi() % 2] * initial_ball_speed
 	velocity.z = [-0.4, 0.4][randi() % 2] * initial_ball_speed
 
+func reset():
+	position.x = 0
+	position.z = 0
+	velocity.x = -1 * initial_ball_speed
+	velocity.z = 0.4 * initial_ball_speed
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -23,3 +29,6 @@ func _physics_process(delta):
 		print(normal, bounce)
 		velocity = bounce * Vector3(1.0, 0.0, 1.0)
 		print(collision_info.get_collider().name)
+		if collision_info.get_collider().name == 'Bottom':
+			reset()
+		

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://nfjereab4c55"]
+
+[ext_resource type="PackedScene" uid="uid://d1ypgl47hb6jl" path="res://fox_base.tscn" id="1_mi8qp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ebshf"]
+size = Vector3(1.66, 2.265, 1.835)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qja7q"]
+size = Vector3(1.66, 2.25, 1.83)
+
+[node name="Fox" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07, 0)
+shape = SubResource("BoxShape3D_ebshf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07, 0)
+visible = false
+mesh = SubResource("BoxMesh_qja7q")
+
+[node name="fox" parent="." instance=ExtResource("1_mi8qp")]
+transform = Transform3D(1.94, 0, 0, 0, 1.94, 0, 0, 0, 1.94, 0, 0, 0)

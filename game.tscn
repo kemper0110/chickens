@@ -40,7 +40,7 @@ script = ExtResource("5_yk248")
 ball = NodePath("../Ball")
 
 [node name="Hero" parent="WorldEnvironment/board" instance=ExtResource("5_f2i4f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.17265, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, 1.258, 0)
 
 [node name="Camera3D" type="Camera3D" parent="WorldEnvironment/board"]
 transform = Transform3D(0.776046, -0.205328, 0.596316, 0, 0.945519, 0.325568, -0.630676, -0.252656, 0.733766, 11.7702, 10.3947, 10.7631)
@@ -48,4 +48,4 @@ visible = false
 fov = 83.4362
 
 [node name="Ball" parent="WorldEnvironment/board" instance=ExtResource("3_v1era")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.78201, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49739, 0)
