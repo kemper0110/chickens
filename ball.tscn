@@ -1,23 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw5uml3sowukl"]
+[gd_scene load_steps=7 format=3 uid="uid://bw5uml3sowukl"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_p0tap"]
-radius = 1.5
+[ext_resource type="Script" path="res://Ball.gd" id="1_olbpw"]
+[ext_resource type="Texture2D" uid="uid://dmcq5ehemqpjq" path="res://assets/Tile_Ball.png" id="2_2b7q8"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_3tcg3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqtnr"]
+albedo_texture = ExtResource("2_2b7q8")
+uv1_scale = Vector3(2.665, 2.665, 2.665)
+
+[sub_resource type="SphereMesh" id="SphereMesh_myrdw"]
+material = SubResource("StandardMaterial3D_aqtnr")
 radius = 1.5
 height = 3.0
 
-[sub_resource type="Skin" id="Skin_8f47v"]
+[sub_resource type="Skin" id="Skin_cdycp"]
 
-[node name="Ball" type="Node3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_sxayu"]
+radius = 1.5
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-mass = 10.0
+[node name="Ball" type="CharacterBody3D"]
+script = ExtResource("1_olbpw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-shape = SubResource("SphereShape3D_p0tap")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-mesh = SubResource("SphereMesh_3tcg3")
-skin = SubResource("Skin_8f47v")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_myrdw")
+skin = SubResource("Skin_cdycp")
 skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_sxayu")

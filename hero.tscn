@@ -7,3 +7,6 @@
 
 [node name="Chicken" parent="." instance=ExtResource("1_0bw3v")]
 script = ExtResource("2_mqnw8")
+
+[node name="Camera3D" type="Camera3D" parent="Chicken"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.814, 1.833, 0.08)
